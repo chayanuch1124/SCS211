@@ -1,0 +1,91 @@
+<div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-6">
+
+                
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+        </div>
+        <!-- Hr -->
+        <div class="row">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-10">
+
+            </div>
+        </div>
+        <!-- Button -->
+
+
+        </div>
+
+        <div class="row">
+            <!--  badge -->
+            <div class="col-lg-6">
+      
+            </div>
+              
+          
+            <div class="col-lg-6">
+      
+            </div>
+          </div>
+          <!--  hr -->
+          <div class="row">
+            <div class="col-lg-6">
+      
+            </div>
+              
+          
+            <div class="col-lg-6">
+      
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+      
+            </div>
+              
+          
+            <div class="col-lg-6">
+      
+            </div>
+          </div>
+          <!-- button -->
+    
+        </div>
+        
+  
+  
+      </div>
+      
+      <!-- 2 columns : carousel + card -->
+      <div class="row">
+        <div class="col-lg-9">
+  
+        </div>
+        <div class="col-lg-3">
+  
+        </div>
+      </div>
+  
+    </div>       
