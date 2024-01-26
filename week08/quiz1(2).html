@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart", "line"] });
+      google.charts.setOnLoadCallback(drawBasic);
+
+      function drawBasic() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'year');
+        data.addColumn('number', 'จำนวน');
+
+        data.addRows([
+          ['2558', 32],
+          ['2559', 27],
+          ['2560', 48],
+          ['2561', 31],
+          ['2562', 52],
+          ['2563', 16],
+          ['2564', 35],
+          ['2565', 50],
+          ['2566', 49],
+        ]);
+
+        var options = {
+            title: 'จำนวนนักศึกษาวิทยาการคอมพิวเตอร์ตั้งแต่ปี 2558 - 2566',
+          hAxis: {
+            title: "ปีการศึกษา",
+          },
+          vAxis: {
+            title: "จำนวนนักศึกษา",
+          },
+        };
+
+        var chart = new google.visualization.LineChart(
+          document.getElementById("chart_div")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 700px; height: 300px"></div>
+  </body>
+</html>
