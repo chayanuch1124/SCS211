@@ -4,9 +4,6 @@ $people = $people_obj["people"];
 ?>
 
 <?php foreach ($people as $row) { ?>
-    <div><?= $row["name"] ?> | <?= $row["education"] ?>| <?= $row["role"] ?>| <?= $row["email"] ?>| <?= $row["phone"] ?></div>
-    <div>
-        <img src="<?= $row["image"] ?>" style="width:300px;height:228px; border-radius: 25px;">
-
-    </div>
+    <div><?= $row["name"] ?></div>
+   
 <?php } ?>
