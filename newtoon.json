@@ -1,0 +1,39 @@
+{
+  "newtoon": [
+    {
+      "id": 1,
+"image": "https://swebtoon-phinf.pstatic.net/20230618_43/1687028156583M6KBm_JPEG/thumbnail.jpg",
+      "type": "Fantasy",
+      "name": "Otherworldly PINK",
+      "rate": "9.50",
+      "writer": "GoofyGodsComics"
+    },
+{
+      "id": 2,
+"image": "https://swebtoon-phinf.pstatic.net/20220706_218/1657089925476HWzR6_JPEG/thumbnail.jpg",
+      "type": "Romance",
+      "name": "WEREWOLF KING’S WIFE",
+      "rate": "9.12",
+      "writer": "Francellyn06"
+    },
+{
+      "id": 3,
+"image": "https://swebtoon-phinf.pstatic.net/20210707_38/1625605955820BkKtK_JPEG/thumbnail.jpg",
+      "type": "Slice of life",
+      "name": "Faked",
+      "rate": "9.57",
+      "writer": "Aericchi"
+    },
+{
+      "id": 4,
+"image": "https://swebtoon-phinf.pstatic.net/20221221_285/1671580844268Vom7f_JPEG/thumbnail.jpg",
+      "type": "Drama",
+      "name": "Mama's Jewels",
+      "rate": "9.08",
+      "writer": "Michelle Ning Lo"
+    }
+
+
+
+  ]
+}
