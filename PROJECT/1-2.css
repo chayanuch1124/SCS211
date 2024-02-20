@@ -1,0 +1,673 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium";
+}
+.navbar {
+  justify-content: space-around;
+}
+.navbar img {
+  width: 90px;
+  height: 90px;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+.navbar .navbar-nav .nav-link {
+  color: #383737;
+  font-size: 20px;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #52e295;
+}
+.navbar-logo-centered .navbar-nav .nav-link {
+  padding: 0.5em 1em;
+}
+.navbar .creators {
+  color: #383737;
+  display: inline-block;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+  font-size: 15px;
+  background: #efeeee;
+  text-decoration: none;
+}
+.navbar .creators:hover {
+  color: #52e295; /* สีที่คุณต้องการเมื่อ hover */
+}
+.creators,
+.nav__actions {
+  display: flex;
+  justify-content: end;
+}
+.nav__actions {
+  display: flex;
+  align-items: end;
+  order: 12; /* เปลี่ยนลำดับการแสดงผลเพื่อวางที่ด้านซ้ายของ Navbar */
+}
+.nav__search,
+.nav__login {
+  font-size: 25px;
+  color: #383737;
+  cursor: pointer;
+  margin-left: 12px; /* เพิ่มระยะห่างระหว่างองค์ประกอบ */
+}
+/* จอพับๆ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* ซ่อนเริ่มต้น */
+  z-index: 9999; /* กำหนดให้พอร์ตัวอยู่ด้านบน */
+}
+.login-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 10000; /* กำหนดให้ป๊อปอัพอยู่ด้านบนสุด */
+  display: none; /* ซ่อนเริ่มต้น */
+  text-align: center;
+}
+.login-popup a {
+  margin: 20px;
+  font-size: 15px;
+}
+.close-icon {
+  position: absolute;
+  top: -15px;
+  right: -8px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #5f5f5f;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* กำหนดให้เป็นวงกลม */
+  background-color: #ffffff; /* สีพื้นหลังของวงกลม */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-popup form {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+form .txt_field {
+  position: relative;
+  border-bottom: 2px solid #d0cece;
+  margin: 20px 0;
+}
+.txt_field input {
+  font-size: 20px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #d0cece;
+  transform: translateY(-50%);
+  font-size: 12px;
+  position: none;
+  transition: 0.5s;
+}
+.txt_field span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  color: #52e295;
+  transition: 0.5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+  top: -5px;
+  color: #696868;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+/* ปุ่มล็อคอิน */
+input[type="button"] {
+  width: 45%;
+  height: 37px;
+  border: 1px solid transparent;
+  background: #595959;
+  border-radius: 25px;
+  font-size: 15px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.login-popup .login {
+  width: 45%;
+  height: 37px;
+  border: 1px solid transparent;
+  background: #14bc62;
+  border-radius: 25px;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}
+.pass {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #505050;
+  font-size: 12px;
+  cursor: pointer;
+}
+.line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  margin: 15px 0;
+  background-color: #d0cece;
+}
+.line::before {
+  content: "OR Log in with";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  color: #7b7b7b;
+  padding: 0 15px;
+  font-size: 12px;
+}
+.social {
+  font-size: 30px;
+  color: #7b7b7b;
+  display: flex;
+}
+.social li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social a {
+  background-color: #f5f2f2;
+  color: #33353d;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin:2px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social .facebook {
+  background-color: #3b5998;
+  color: #ffffff;
+}
+.social .twitter {
+  background-color: #18a1e1;
+  color: #ffffff;
+}
+.social .line-1 {
+  background-color: #158f4e;
+  color: #ffffff;
+}
+.social .google {
+  background-color: #b22319;
+  color: #ffffff;
+}
+.social .apple {
+  background-color: #33353d;
+  color: #ffffff;
+}
+
+
+/*casualๆ*/
+.img_rsponsive {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 700px) {
+  .img_rsponsive {
+    width: 490px;
+   
+  }
+}
+
+
+/* จอเลื่อนๆ แก้+++ */
+.text-sec {
+  color: #383737;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.btn-all {
+  color: #383737;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-left: 12px;
+  padding-bottom: 5px;
+  border-radius: 25px;
+  font-size: 15px;
+  background: #efeeee;
+  text-decoration: none;
+  float: right;
+}
+.btn-all:hover {
+  color: #14bc62; /* สีที่คุณต้องการเมื่อ hover */
+}
+.wrapper {
+  display: flex;
+  max-width: 1250px;
+  position: relative;
+  margin: 5px; /* เพิ่มบรรทัดนี้ */
+  
+}
+/* .wrapper i {
+  top: 50%;
+  height: 44px;
+  width: 44px;
+  color: #343f4f;
+  cursor: pointer;
+  font-size: 1.15rem;
+  position: absolute;
+  text-align: center;
+  line-height: 44px;
+  background: #f3f3f3;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+  
+}
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.wrapper i:hover {
+  background: #52e295;
+}
+.wrapper i:first-child {
+  left: -22px;
+}
+.wrapper i:last-child {
+  right: -22px;
+}*/
+.wrapper .item2 {
+  white-space: nowrap;
+ 
+
+}
+.item2 {
+  display: flex;
+  overflow-x: auto;
+}
+
+.image-container {
+  position: relative;
+  margin-left: 15px;
+}
+
+
+.image-text-1 {
+  position: absolute;
+  font-size: 15px;
+  bottom: 47px; /* ปรับตำแหน่งตามความต้องการ */
+  padding: 2px 10px; /* ปรับขนาดของข้อความ */
+  font-weight: bold; /* ตั้งค่าตัวหนาของข้อความ */
+  color: #ffffff;
+}
+.image-text-1-1 {
+  position: absolute;
+  font-size: 20px;
+  bottom: 20px; /* ปรับตำแหน่งตามความต้องการ */
+  padding: 5px 10px; /* ปรับขนาดของข้อความ */
+  border-radius: 5px; /* ขอบโค้งของกล่องข้อความ */
+  font-weight: bold; /* ตั้งค่าตัวหนาของข้อความ */
+  color: #ffffff;
+}
+.image-text-1-2 {
+  position: absolute;
+  font-size: 15px;
+  top: 5px; /* ปรับตำแหน่งตามความต้องการ */
+  left: 135px; /* ปรับตำแหน่งตามความต้องการ */
+  font-weight: bold; /* ตั้งค่าตัวหนาของข้อความ */
+  color: #383737;
+  padding: 3px 5px; /* ปรับขนาดของข้อความ */
+  background: #fff;
+  background: rgba(255, 255, 255, 0.84); /* เปลี่ยนสีพื้นหลังเป็นสีขาวโปร่ง */
+  border-radius: 25px; /* ขอบโค้งของกล่องข้อความ */
+}
+.image-text-1-2::before {
+  color: rgb(252, 177, 48); /* เปลี่ยนสีตัวอักษรในไอคอนเป็นสีขาว */
+}
+.image-text-1-3 {
+  position: absolute;
+  font-size: 15px;
+  bottom: 5px; /* ปรับตำแหน่งตามความต้องการ */
+  padding: 5px 10px; /* ปรับขนาดของข้อความ */
+  border-radius: 5px; /* ขอบโค้งของกล่องข้อความ */
+  font-weight: bold; /* ตั้งค่าตัวหนาของข้อความ */
+  color: #ffffff;
+}
+
+.item2 .dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+.item2 .dragging img {
+  pointer-events: none;
+}
+.item2 img {
+  height: 300px;
+  width: 200px;
+  object-fit: cover;
+  user-select: none;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+.item2 img:first-child {
+  margin-left: 0px;
+}
+.item2 .dragging img {
+  pointer-events: none;
+}
+.ftco-section,
+.item2,
+.item4 {
+  scrollbar-width: none;
+}
+.canvas {
+  display: flex;
+  max-width: 1280px;
+  position: relative;
+  margin: 5px; /* เพิ่มบรรทัดนี้ */
+}
+.item4 img {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+  user-select: none;
+  border-radius: 10px;
+}
+.item4 {
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  display: flex;
+  overflow-x: auto;
+}
+.item4 {
+  display: flex;
+  max-width: 1280px;
+  position: relative;
+  margin-top: 10px; /* เพิ่มบรรทัดนี้ */
+  margin-bottom: 20px; /* เพิ่มบรรทัดนี้ */
+}
+.image-text-4-2 {
+  position: absolute;
+  font-size: 15px;
+  top: 5px; /* ปรับตำแหน่งตามความต้องการ */
+  left: 235px; /* ปรับตำแหน่งตามความต้องการ */
+  font-weight: bold; /* ตั้งค่าตัวหนาของข้อความ */
+  color: #383737;
+  padding: 3px 5px; /* ปรับขนาดของข้อความ */
+  background: #fff;
+  background: rgba(255, 255, 255, 0.84); /* เปลี่ยนสีพื้นหลังเป็นสีขาวโปร่ง */
+  border-radius: 25px; /* ขอบโค้งของกล่องข้อความ */
+}
+.image-text-4-2::before {
+  color: rgb(252, 177, 48); /* เปลี่ยนสีตัวอักษรในไอคอนเป็นสีขาว */
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+select {
+  margin-bottom: 1em;
+  padding: .25em;
+  border: 0;
+ 
+  font-weight: bold;
+  letter-spacing: .15em;
+  border-radius: 0;
+  &:focus, &:active {
+    outline: 0;
+    border-bottom-color: none;
+  }
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+  .item2 img {
+    width: 200px;
+  }
+}
+/*canvas canji*/
+.text-casvas {
+  font-size: 30px;
+  color: #14bc62;
+}
+.text {
+  font-size: 19px;
+  color: #33353d;
+}
+
+.findout {
+  color: #ffffff;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  border-radius: 25px;
+  font-size: 21px;
+  background: #14bc62;
+  text-decoration: none;
+}
+.findout:hover {
+  color: #14bc62; /* สีที่คุณต้องการเมื่อ hover */
+  background-color: #d8d8d8;
+}
+
+/*footer*/
+.site-footer {
+  background-color: #f5f2f2;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #33353d;
+}
+
+.site-footer a {
+  color: #33353d;
+  text-decoration: none;
+  font-size: 19px;
+  align-items: center;
+}
+
+.footer-links {
+  padding-left: 0;
+  list-style: none;
+}
+.footer-links li {
+  display: block;
+}
+.footer-links a {
+  color: #33353d;
+}
+.footer-links a:active,
+.footer-links a:focus,
+.footer-links a:hover {
+  color: #14bc62;
+  text-decoration: none;
+}
+.footer-links.inline li {
+  display: inline-block;
+}
+.site-footer .social-icons {
+  text-align: right;
+}
+
+.copyright-text {
+  margin: 0;
+}
+@media (max-width: 991px) {
+  .site-footer [class="col-4"] {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 0;
+  }
+  .site-footer .copyright-text,
+  .site-footer .social-icons {
+    text-align: center;
+  }
+}
+.social-icons,
+.social-icons1,.social{
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.social-icons li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.social-icons1 li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.social-icons li.title {
+  margin-right: 20px;
+  text-transform: uppercase;
+  color: #96a2b2;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+
+
+
+.social-icons a {
+  background-color: #f5f2f2;
+  color: #33353d;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.social-icons1 a {
+  color: #33353d;
+  font-size: 20px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.social-icons a:active,
+.social-icons a:focus,
+.social-icons a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons1 a:active,
+.social-icons1 a:focus,
+.social-icons1 a:hover {
+  color: #fff;
+  background-color: #29aafe;
+}
+.social-icons.size-sm a {
+  line-height: 34px;
+  height: 34px;
+  width: 34px;
+  font-size: 14px;
+}
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.twitter:hover {
+  background-color: #18a1e1;
+}
+.social-icons a.linkedin:hover {
+  background-color: #b22319;
+}
+.social-icons a.dribbble:hover {
+  background-color: #158f4e;
+}
+.social-icons1 a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons1 a.twitter:hover {
+  background-color: #18a1e1;
+}
+.social-icons1 a.linkedin:hover {
+  background-color: #b22319;
+}
+.social-icons1 a.dribbble:hover {
+  background-color: #158f4e;
+}
+@media (max-width: 767px) {
+  .social-icons li.title {
+    display: block;
+    margin-right: 0;
+    font-weight: 600;
+  }
+}
+.name-item,
+.name-item1 {
+  font-size: 19px;
+  display: flex; /* หรือ display: grid; */
+  /*justify-content: center;  /*หรือ align-items: center; */
+}
+.bw-image {
+  padding-top: 10px;
+  width: 385px;
+}
+
+@media screen and (max-width: 900px) {
+  .bw-image {
+    width: calc(500px / 2);
+  }
+}
+@media screen and (max-width: 900px) {
+  .img-footer {
+    width: calc(500px / 2);
+  }
+}
